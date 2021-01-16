@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import CustomSearchBar from '../components/SearchBar';
+// import Navbar from '../components/Navbar';
 
 export default function App() {
   return (
@@ -9,6 +10,7 @@ export default function App() {
       <Text>Search the web, offline tests.</Text>
       {/* <StatusBar style="auto" /> */}
       <CustomSearchBar/>
+      {/* <Navbar/> */}
 
     </View>
   );
