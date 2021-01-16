@@ -2,6 +2,7 @@ import { SearchBar } from 'react-native-elements';
 // import React from 'react';
 import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
+import ClearIcon from './ClearIcon'
 
 // import { SearchBar } from 'react-native-elements';
 
@@ -19,40 +20,46 @@ export default class CustomSearchBar extends React.Component {
 
     return (
       <SearchBar
-        placeholder="Type Here..."
+        placeholder="Type your search here..."
         onChangeText={this.updateSearch}
         value={this.state.search}
-        lightTheme={true}
+        containerStyle={styles.container}
+        inputContainerStyle={styles.inputContainer}
+        inputStyle={styles.input}
+        // onClear={() => console.log("test")}
+        // leftIconContainerStyle={styles.leftIconContainer}
+        // clearIcon={<ClearIcon/>}
       />
     );
   }
 }
-
-// export default function CustomSearchBar(props) {
-//     const [search, setSearch] = useState('');
-    
-//     const updateSearch = (search) => {
-//     setSearch({ search });
-//     };
-
-//     return (
-//         // <View style={styles.container}>
-//             <SearchBar
-//             placeholder="Type Here..."
-//             onChangeText={updateSearch}
-//             value={search}
-//             lightTheme={true}
-//             // searchIcon={true}
-//             />
-//         // </View>
-//     );
-// }
   
 const styles = StyleSheet.create({
 container: {
-    // flex: 1,
-    // backgroundColor: '#fff',
-    // alignItems: 'center',
-    // justifyContent: 'center',
+    flex: 1,
+    backgroundColor: 'rgba(255,255,255,1)',
+    borderTopWidth: 0,
+    borderBottomWidth: 0,
 },
+inputContainer: {
+    backgroundColor: "#fff",
+    elevation: 4,
+    height: 40,
+    // paddingTop:20,
+    // paddingBottom:20,
+    shadowColor: "#000",
+    shadowOffset: {
+        width: 0,
+        height: 2,
+    },
+shadowOpacity: 0.23,
+shadowRadius: 2.62,
+},
+leftIconContainer:{
+    // widt
+},
+input: {
+    fontSize: 18,
+    color:'#4D4D4D',
+}
 });

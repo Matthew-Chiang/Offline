@@ -14,4 +14,4 @@
 //       <Tab.Screen name="Maps" component={SettingsScreen} />
 //     </Tab.Navigator>
 //   );
-}
+// }
