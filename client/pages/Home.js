@@ -1,23 +1,24 @@
+import SearchResultsCard from '../components/SearchResultsCard';
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import CustomSearchBar from '../components/SearchBar';
 
-export default function App() {
+export default function Home() {
   return (
-    <View style={styles.container}>
-      <Text>Search the web, offline tests.</Text>
-      {/* <StatusBar style="auto" /> */}
-      <CustomSearchBar/>
-
+    <View style={styles.main}>
+      <View style={styles.searchResults}>
+      <SearchResultsCard/>
+      <SearchResultsCard/>
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // backgroundColor: '#fff',
+  main: {
+    //flex: 1,
+    backgroundColor: '#000',
     // alignItems: 'center',
     // justifyContent: 'center',
     // padding: '20',
@@ -26,4 +27,6 @@ const styles = StyleSheet.create({
     paddingRight: 20,
     paddingTop: 300
   },
+
+ 
 });

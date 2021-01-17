@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import Home from './pages/Home'
+import SearchResults from './pages/SearchResults'
 
 export default function App() {
   return (
     <View>
-      <Home/>
+      <SearchResults/>
       {/* <Text>test</Text> */}
     </View>
     
