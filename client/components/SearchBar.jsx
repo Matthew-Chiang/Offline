@@ -1,19 +1,60 @@
+//leaving comments here for now might need later
 import { SearchBar } from 'react-native-elements';
-// import React from 'react';
-import React, { useState } from 'react';
+import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import ClearIcon from './ClearIcon'
-
-// import { SearchBar } from 'react-native-elements';
+import * as SMS from 'expo-sms';
 
 export default class CustomSearchBar extends React.Component {
-  state = {
-    search: '',
-  };
+    state = {
+        search: '',
+    };
 
-  updateSearch = (search) => {
-    this.setState({ search });
-  };
+    updateSearch = (search) => {
+        this.setState({ search });
+        console.log(search)
+    };
+
+    printSearch = (search) => {
+        // this.setState({ search });
+        console.log(search)
+    };
+    
+    // sendMessage = (number, message) => {
+    //     SendSMS.send(123, "14167860936", "Hey.., this is me!\nGood to see you. Have a nice day.", (msg)=>{ alert(msg) });
+    // };
+
+    // const { result } = await SMS.sendSMSAsync(
+    //     ['0123456789', '9876543210'],
+    //     'My sample HelloWorld message',
+    //     {
+    //       attachments: {
+    //         uri: 'path/myfile.png',
+    //         mimeType: 'image/png',
+    //         filename: 'myfile.png',
+    //       },
+    //     }
+    // );
+
+    sendMessage = () => {
+        SMS.sendSMSAsync(
+            ['16472687381'],
+            'My sample HelloWorld message',
+            // {
+            // attachments: {
+            //     uri: 'path/myfile.png',
+            //     mimeType: 'image/png',
+            //     filename: 'myfile.png',
+            // },
+            // }
+        );
+    }
+
+// const isAvailable = await SMS.isAvailableAsync();
+// if (isAvailable) {
+//   // do your SMS stuff here
+// } else {
+//   // misfortune... there's no SMS available on this device
+// }
 
   render() {
     const { search } = this.state;
@@ -26,40 +67,35 @@ export default class CustomSearchBar extends React.Component {
         containerStyle={styles.container}
         inputContainerStyle={styles.inputContainer}
         inputStyle={styles.input}
-        // onClear={() => console.log("test")}
-        // leftIconContainerStyle={styles.leftIconContainer}
-        // clearIcon={<ClearIcon/>}
+        onSubmitEditing={this.sendMessage}
       />
     );
   }
 }
   
 const styles = StyleSheet.create({
-container: {
-    flex: 1,
-    backgroundColor: 'rgba(255,255,255,1)',
-    borderTopWidth: 0,
-    borderBottomWidth: 0,
-},
-inputContainer: {
-    backgroundColor: "#fff",
-    elevation: 4,
-    height: 40,
-    // paddingTop:20,
-    // paddingBottom:20,
-    shadowColor: "#000",
-    shadowOffset: {
-        width: 0,
-        height: 2,
+    container: {
+        flex: 1,
+        backgroundColor: 'rgba(255,255,255,0)',
+        borderTopWidth: 0,
+        borderBottomWidth: 0,
+        paddingBottom:150,
     },
-shadowOpacity: 0.23,
-shadowRadius: 2.62,
-},
-leftIconContainer:{
-    // widt
-},
-input: {
-    fontSize: 18,
-    color:'#4D4D4D',
-}
+    inputContainer: {
+        backgroundColor: "#fff",
+        elevation: 4,
+        paddingTop:0,
+        paddingBottom:0,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.23,
+        shadowRadius: 2.62,
+    },
+    input: {
+        fontSize: 18,
+        color:'#4D4D4D',
+    }
 });
