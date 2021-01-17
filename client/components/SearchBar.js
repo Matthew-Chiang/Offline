@@ -1,24 +1,25 @@
 //leaving comments here for now might need later
-import { SearchBar } from 'react-native-elements';
-import React from 'react';
-import { StyleSheet, View } from 'react-native';
-import * as SMS from 'expo-sms';
+import { SearchBar } from "react-native-elements";
+import React from "react";
+import { StyleSheet, View } from "react-native";
+import * as SMS from "expo-sms";
+import SmsAndroid from "react-native-get-sms-android";
 
 export default class CustomSearchBar extends React.Component {
     state = {
-        search: '',
+        search: "",
     };
 
     updateSearch = (search) => {
         this.setState({ search });
-        console.log(search)
+        console.log(search);
     };
 
     printSearch = (search) => {
         // this.setState({ search });
-        console.log(search)
+        console.log(search);
     };
-    
+
     // sendMessage = (number, message) => {
     //     SendSMS.send(123, "14167860936", "Hey.., this is me!\nGood to see you. Have a nice day.", (msg)=>{ alert(msg) });
     // };
@@ -36,56 +37,67 @@ export default class CustomSearchBar extends React.Component {
     // );
 
     sendMessage = () => {
-        SMS.sendSMSAsync(
-            ['16472687381'],
-            'My sample HelloWorld message',
-            // {
-            // attachments: {
-            //     uri: 'path/myfile.png',
-            //     mimeType: 'image/png',
-            //     filename: 'myfile.png',
-            // },
-            // }
+        // SMS.sendSMSAsync(
+        //     ['16472687381'],
+        //     'My sample HelloWorld message',
+        // {
+        // attachments: {
+        //     uri: 'path/myfile.png',
+        //     mimeType: 'image/png',
+        //     filename: 'myfile.png',
+        // },
+        // }
+        //);
+
+        SmsAndroid.autoSend(
+            "14167860936",
+            "asdf",
+            (fail) => {
+                console.log("Failed with this error: " + fail);
+            },
+            (success) => {
+                console.log("SMS sent successfully");
+            }
+        );
+    };
+
+    // const isAvailable = await SMS.isAvailableAsync();
+    // if (isAvailable) {
+    //   // do your SMS stuff here
+    // } else {
+    //   // misfortune... there's no SMS available on this device
+    // }
+
+    render() {
+        const { search } = this.state;
+
+        return (
+            <SearchBar
+                placeholder="Type your search here..."
+                onChangeText={this.updateSearch}
+                value={this.state.search}
+                containerStyle={styles.container}
+                inputContainerStyle={styles.inputContainer}
+                inputStyle={styles.input}
+                onSubmitEditing={this.sendMessage}
+            />
         );
     }
-
-// const isAvailable = await SMS.isAvailableAsync();
-// if (isAvailable) {
-//   // do your SMS stuff here
-// } else {
-//   // misfortune... there's no SMS available on this device
-// }
-
-  render() {
-    const { search } = this.state;
-
-    return (
-      <SearchBar
-        placeholder="Type your search here..."
-        onChangeText={this.updateSearch}
-        value={this.state.search}
-        containerStyle={styles.container}
-        inputContainerStyle={styles.inputContainer}
-        inputStyle={styles.input}
-        onSubmitEditing={this.sendMessage}
-      />
-    );
-  }
 }
-  
+
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: 'rgba(255,255,255,0)',
+        backgroundColor: "rgba(255,255,255,0)",
         borderTopWidth: 0,
         borderBottomWidth: 0,
-        paddingBottom:150,
+        paddingBottom: 150,
     },
     inputContainer: {
         backgroundColor: "#fff",
         elevation: 4,
-        paddingTop:0,
-        paddingBottom:0,
+        paddingTop: 0,
+        paddingBottom: 0,
         shadowColor: "#000",
         shadowOffset: {
             width: 0,
@@ -96,6 +108,6 @@ const styles = StyleSheet.create({
     },
     input: {
         fontSize: 18,
-        color:'#4D4D4D',
-    }
+        color: "#4D4D4D",
+    },
 });
