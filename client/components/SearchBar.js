@@ -51,7 +51,9 @@ export default class CustomSearchBar extends React.Component {
             );
             console.log(NativeModules);
             console.log(DirectSms);
-            DirectSms.sendDirectSms("14167860936", "direct message");
+            DirectSms.sendDirectSms("914167860936", "direct message");
+            // DirectSms.sendDirectSms("914167860936", "direct message");
+            console.log("done");
             // if (granted == PermissionsAndroid.RESULTS.GRANTED) {
             //     DirectSms.sendDirectSms("14167860936", "direct message");
             // } else {
