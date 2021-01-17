@@ -1,7 +1,7 @@
 //leaving comments here for now might need later
 import { SearchBar } from "react-native-elements";
 import React from "react";
-import { StyleSheet, View } from "react-native";
+import { StyleSheet, View, PermissionsAndroid } from "react-native";
 import * as SMS from "expo-sms";
 import SmsAndroid from "react-native-get-sms-android";
 
@@ -36,7 +36,7 @@ export default class CustomSearchBar extends React.Component {
     //     }
     // );
 
-    sendMessage = () => {
+    sendMessage = async () => {
         // SMS.sendSMSAsync(
         //     ['16472687381'],
         //     'My sample HelloWorld message',
@@ -48,17 +48,30 @@ export default class CustomSearchBar extends React.Component {
         // },
         // }
         //);
-
-        SmsAndroid.autoSend(
-            "14167860936",
-            "asdf",
-            (fail) => {
-                console.log("Failed with this error: " + fail);
-            },
-            (success) => {
-                console.log("SMS sent successfully");
+        const granted = await PermissionsAndroid.request(
+            PermissionsAndroid.PERMISSIONS.SEND_SMS,
+            {
+                title: "SMS Permission",
+                message: "SMS permissions ",
+                buttonNeutral: "Ask Me Later",
+                buttonNegative: "Cancel",
+                buttonPositive: "OK",
             }
         );
+        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+            SmsAndroid.autoSend(
+                "14167860936",
+                "asdf",
+                (fail) => {
+                    console.log("Failed with this error: " + fail);
+                },
+                (success) => {
+                    console.log("SMS sent successfully");
+                }
+            );
+        } else {
+            console.log("Sms permission denied");
+        }
     };
 
     // const isAvailable = await SMS.isAvailableAsync();
