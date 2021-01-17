@@ -2,8 +2,10 @@
 import { SearchBar } from 'react-native-elements';
 import React from 'react';
 import { StyleSheet, View } from 'react-native';
-import SmsAndroid from 
 // import * as SMS from 'expo-sms';
+
+import SmsAndroid from 'react-native-get-sms-android';
+
 
 export default class CustomSearchBar extends React.Component {
     state = {
@@ -37,17 +39,16 @@ export default class CustomSearchBar extends React.Component {
     // );
 
     sendMessage = () => {
-        SMS.sendSMSAsync(
-            ['16472687381'],
-            'My sample HelloWorld message',
-            // {
-            // attachments: {
-            //     uri: 'path/myfile.png',
-            //     mimeType: 'image/png',
-            //     filename: 'myfile.png',
-            // },
-            // }
-        );
+        SmsAndroid.autoSend(
+            '14167860936',
+            'autosend',
+            (fail) => {
+              console.log('Failed with this error: ' + fail);
+            },
+            (success) => {
+              console.log('SMS sent successfully');
+            },
+          );
     }
 
 // const isAvailable = await SMS.isAvailableAsync();

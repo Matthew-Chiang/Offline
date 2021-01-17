@@ -6,16 +6,16 @@ import CustomSearchBar from "../components/SearchBar";
 // SendSMS.send(123, "+959254687254", "Hey.., this is me!\nGood to see you. Have a nice day.", (msg)=>{ alert(msg) });
 
 export default function App() {
-    sendMessage = (number, message) => {
-        SendSMS.send(
-            123,
-            "14167860936",
-            "Hey.., this is me!\nGood to see you. Have a nice day.",
-            (msg) => {
-                alert(msg);
-            }
-        );
-    };
+    // sendMessage = (number, message) => {
+    //     SendSMS.send(
+    //         123,
+    //         "14167860936",
+    //         "Hey.., this is me!\nGood to see you. Have a nice day.",
+    //         (msg) => {
+    //             alert(msg);
+    //         }
+    //     );
+    // };
 
     return (
         <View style={styles.container}>
