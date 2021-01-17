@@ -7,11 +7,11 @@ import CustomSearchBar from "../components/SearchBar";
 
 const { width } = Dimensions.get("window");
 
-export default function SearchResults() {
+export default function SearchResults(props) {
     return (
         <ScrollView style={styles.scrollView}>
             <View style={styles.main}>
-                <CustomSearchBar />
+                <CustomSearchBar onEnter={() => {props.nextComponent()}} />
                 <View style={styles.textContainer}>
                     <Text style={styles.heading}> Recipes </Text>
                 </View>
