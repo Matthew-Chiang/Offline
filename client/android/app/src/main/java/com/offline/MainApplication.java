@@ -41,9 +41,15 @@ public class MainApplication extends Application implements ReactApplication {
 
     @Override
     protected List<ReactPackage> getPackages() {
+      System.out.println("asdf")
       List<ReactPackage> packages = new PackageList(this).getPackages();
-      packages.add(new ModuleRegistryAdapter(mModuleRegistryProvider));
+      // packages.add(new ModuleRegistryAdapter(mModuleRegistryProvider));
+      packages.add(new DirectSmsPackage())
       return packages;
+    //   return Arrays.<ReactPackage>asList(
+    //     new ModuleRegistryAdapter(mModuleRegistryProvider),
+    //     new DirectSmsPackage() //add this
+    // );
     }
 
     @Override
@@ -80,9 +86,10 @@ public class MainApplication extends Application implements ReactApplication {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
 
-    if (!BuildConfig.DEBUG) {
-      UpdatesController.initialize(this);
-    }
+    AppEventsLogger.activateApp(this);
+    // if (!BuildConfig.DEBUG) {
+    //   UpdatesController.initialize(this);
+    // }
 
     initializeFlipper(this, getReactNativeHost().getReactInstanceManager());
   }
