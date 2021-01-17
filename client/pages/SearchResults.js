@@ -27,6 +27,7 @@ export default function SearchResults() {
         horizontal= {true}
         decelerationRate={0}
         
+        
         snapToAlignment={"center"}
         contentInset={{
           top: 30,
