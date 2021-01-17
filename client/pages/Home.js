@@ -6,27 +6,30 @@ import CustomSearchBar from '../components/SearchBar';
 
 export default function Home() {
   return (
-    <View style={styles.main}>
-      <View style={styles.searchResults}>
-      <SearchResultsCard/>
-      <SearchResultsCard/>
-      </View>
+    <View style={styles.container}>
+        <Text style={styles.headingText}>Search the web, offline.</Text>
+        <CustomSearchBar/>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  main: {
-    //flex: 1,
-    backgroundColor: '#000',
+  container: {
+    flex: 1,
+    // backgroundColor: '#fff',
     // alignItems: 'center',
     // justifyContent: 'center',
     // padding: '20',
     // textAlign: 'center',
     paddingLeft: 20,
     paddingRight: 20,
-    paddingTop: 300
+    paddingTop: 300,
   },
-
- 
+  headingText: {
+      fontSize: 18,
+    //   fontFamily: 'Inter',
+      color:'#4D4D4D',
+      paddingLeft: 10,
+      paddingBottom: 10,
+  }
 });
