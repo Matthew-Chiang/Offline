@@ -2,12 +2,15 @@ import { StatusBar } from 'expo-status-bar';
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import SearchResults from './pages/SearchResults'
+import Home from './pages/Home';
 
 export default function App() {
+  
   return (
     <View>
       <SearchResults/>
       {/* <Text>test</Text> */}
+      <Home/>
     </View>
     
     // <View style={styles.container}>
