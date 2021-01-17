@@ -1,47 +1,43 @@
+import SearchResultsCard from "../components/SearchResultsCard";
+import MediumCard from "../components/MediumCard";
+import { StatusBar } from "expo-status-bar";
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, ScrollView, Dimensions } from "react-native";
 import CustomSearchBar from "../components/SearchBar";
-// import SendSMS from 'react-native-sms-x';
 
-// SendSMS.send(123, "+959254687254", "Hey.., this is me!\nGood to see you. Have a nice day.", (msg)=>{ alert(msg) });
+const { width } = Dimensions.get("window");
 
-export default function App() {
-    sendMessage = (number, message) => {
-        SendSMS.send(
-            123,
-            "14167860936",
-            "Hey.., this is me!\nGood to see you. Have a nice day.",
-            (msg) => {
-                alert(msg);
-            }
-        );
-    };
-
+export default function SearchResults(props) {
     return (
-        <View style={styles.container}>
-            <Text style={styles.headingText}>Search the web, offline.</Text>
-            <CustomSearchBar />
-        </View>
+        <CustomSearchBar onEnter={() => {props.nextComponent()}} />
     );
 }
 
 const styles = StyleSheet.create({
     main: {
         //flex: 1,
-        backgroundColor: "#000",
+        backgroundColor: "white",
         // alignItems: 'center',
         // justifyContent: 'center',
         // padding: '20',
         // textAlign: 'center',
         paddingLeft: 20,
         paddingRight: 20,
-        paddingTop: 300,
+        paddingTop: 50,
     },
-    headingText: {
-        fontSize: 18,
-        //   fontFamily: 'Inter',
-        color: "#4D4D4D",
-        paddingLeft: 10,
-        paddingBottom: 10,
+
+    heading: {
+        fontSize: 20,
+        color: "#30566B",
     },
+
+    heading2: {
+        fontSize: 16,
+    },
+
+    textContainer: {
+        padding: 10,
+    },
+
+    horCarousel: {},
 });
