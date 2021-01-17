@@ -9,17 +9,20 @@ export default function App() {
     return (
         <ScrollView style={styles.scrollView}>
             <View style={styles.container}>
-              {!showResults ? 
-                <Home
-                    style={{
-                        paddingTop: 200,
-                        paddingBottom: 200,
-                    }}
-                    nextComponent={() => {
-                        console.log("next!")
-                        setShowResults(true);
-                    }}
-                />:<SearchResults /> }
+                {!showResults ? (
+                    <Home
+                        style={{
+                            paddingTop: 200,
+                            paddingBottom: 200,
+                        }}
+                        nextComponent={() => {
+                            console.log("next!");
+                            setShowResults(true);
+                        }}
+                    />
+                ) : (
+                    <SearchResults />
+                )}
             </View>
             {/* //{" "}
             <View style={styles.container}>
