@@ -11,7 +11,7 @@ export default function SearchResults() {
     return (
         <ScrollView style={styles.scrollView}>
             <View style={styles.main}>
-                <CustomSearchBar />
+                <CustomSearchBar onEnter={() => {}} />
                 <View style={styles.textContainer}>
                     <Text style={styles.heading}> Recipes </Text>
                 </View>
