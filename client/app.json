@@ -1,6 +1,9 @@
 {
   "expo": {
     "name": "client",
+    "platforms":[
+      "ios","android"
+    ],
     "slug": "client",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -17,13 +20,15 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier":"com.offline"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
-      }
+      },
+      "package":"com.offline"
     },
     "web": {
       "favicon": "./assets/favicon.png"
