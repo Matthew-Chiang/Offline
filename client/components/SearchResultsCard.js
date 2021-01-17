@@ -2,13 +2,13 @@ import React from 'react'
 
 import { Text, View , StyleSheet} from 'react-native';
 
-
 export default class SearchResultsCard extends React.Component{
     render () {
+
         return (
         <View style={styles.container}>
             <Text style={styles.link}>www.allrecipes.com > recipes > veg... </Text>
-            <Text style={styles.heading}>Vegetarian Recipes | Allrecipes </Text>
+            <Text style={styles.heading}>Vegetarian Recipes | Allrecipes</Text>
             <Text style={styles.body}>A low-carb take on ravioli. Thin strips of zucchini are stuffed with a classic magro (lean) filling and pesto, topped with tomato sauce and cheese, then baked. Top with fresh hot chile peppers or pepper flakes and more Parmesan cheese. </Text>
         </View>
         )
