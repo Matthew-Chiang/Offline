@@ -7,9 +7,9 @@ export default class NewsCard extends React.Component{
     render () {
         return (
         <View style={styles.containerMed}>
-            <Text style={styles.heading2}>Six Vancouver schools report new COVID-19 exposures</Text>
-            <Text style={styles.heading3}>Daily Hive - 9 hours ago</Text>
-            <Text style={styles.body}>Six Vancouver schools reported new COVID-19 exposures this week, as students wrap up their second week back after win... </Text>
+            <Text style={styles.heading2}>Costco office employees question why they can’t work from home</Text>
+            <Text style={styles.heading3}>CBC.ca - 22 hours ago</Text>
+            <Text style={styles.body}>Some employees at Costco’s regional offices in Ottawa are questioning why they’re being told to come into the office...</Text>
         </View>
         )
     };

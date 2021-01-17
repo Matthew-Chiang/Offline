@@ -7,9 +7,9 @@ export default class NewsCard extends React.Component{
     render () {
         return (
         <View style={styles.containerMed}>
-            <Text style={styles.heading2}>Six Vancouver schools report new COVID-19 exposures</Text>
-            <Text style={styles.heading3}>Daily Hive - 9 hours ago</Text>
-            <Text style={styles.body}>Six Vancouver schools reported new COVID-19 exposures this week, as students wrap up their second week back after win... </Text>
+            <Text style={styles.heading2}>What’s next for the cast of Netflix’s hit K-drama Start-Up?</Text>
+            <Text style={styles.heading3}>SCMP - 1 day ago</Text>
+            <Text style={styles.body}>South Korean stars Bae Suzy, Nam Joo-hyuk and Kim Seon-ho all became globally famous after the hit 2020 Netflix drama...</Text>
         </View>
         )
     };

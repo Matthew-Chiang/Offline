@@ -7,9 +7,9 @@ export default class NewsCard extends React.Component{
     render () {
         return (
         <View style={styles.containerMed}>
-            <Text style={styles.heading2}>Six Vancouver schools report new COVID-19 exposures</Text>
-            <Text style={styles.heading3}>Daily Hive - 9 hours ago</Text>
-            <Text style={styles.body}>Six Vancouver schools reported new COVID-19 exposures this week, as students wrap up their second week back after win... </Text>
+            <Text style={styles.heading2}>Signal app goes down as users fllee new WhatsApp privacy terms</Text>
+            <Text style={styles.heading3}>CTV News - 16 hours ago</Text>
+            <Text style={styles.body}>Encrypted chat app Signal remained offline Saturday as the company dealt with technical difficulties amid a surge of... </Text>
         </View>
         )
     };
