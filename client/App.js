@@ -5,21 +5,21 @@ import SearchResults from "./pages/SearchResults";
 import Home from "./pages/Home";
 
 export default function App() {
-    [showResults, setShowResults] = useState(false);
+    const [showResults, setShowResults] = useState(false);
     return (
         <ScrollView style={styles.scrollView}>
             <View style={styles.container}>
-                <SearchResults />
+              {!showResults ? 
                 <Home
                     style={{
                         paddingTop: 200,
                         paddingBottom: 200,
                     }}
                     nextComponent={() => {
+                        console.log("next!")
                         setShowResults(true);
                     }}
-                />
-                {showResults && <SearchResults />}
+                />:<SearchResults /> }
             </View>
             {/* //{" "}
             <View style={styles.container}>

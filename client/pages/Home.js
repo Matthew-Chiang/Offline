@@ -7,44 +7,9 @@ import CustomSearchBar from "../components/SearchBar";
 
 const { width } = Dimensions.get("window");
 
-export default function SearchResults() {
+export default function SearchResults(props) {
     return (
-        <ScrollView style={styles.scrollView}>
-            <View style={styles.main}>
-                <CustomSearchBar onEnter={() => {}} />
-                <View style={styles.textContainer}>
-                    <Text style={styles.heading}> Recipes </Text>
-                </View>
-
-                <ScrollView
-                    style={styles.horCarousel}
-                    showsHorizontalScrollIndicator={false}
-                    //pagingEnabled={true}
-                    horizontal={true}
-                    decelerationRate={0}
-                    snapToAlignment={"center"}
-                    contentInset={{
-                        top: 30,
-                        left: 30,
-                        bottom: 30,
-                        right: 30,
-                    }}
-                >
-                    <MediumCard />
-                    <MediumCard />
-                    <MediumCard />
-                    <MediumCard />
-                </ScrollView>
-
-                <View style={styles.textContainer}>
-                    <Text style={styles.heading2}> More Results </Text>
-                </View>
-                <View style={styles.searchResults}>
-                    <SearchResultsCard />
-                    <SearchResultsCard />
-                </View>
-            </View>
-        </ScrollView>
+        <CustomSearchBar onEnter={() => {props.nextComponent()}} />
     );
 }
 
